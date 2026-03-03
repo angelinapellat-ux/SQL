@@ -9,7 +9,6 @@ mydb = mysql.connector.connect(
 
 cursor = mydb.cursor()
 
-# Création de la table etage
 cursor.execute("""
 CREATE TABLE etage (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -19,7 +18,6 @@ CREATE TABLE etage (
 )
 """)
 
-# Création de la table salle
 cursor.execute("""
 CREATE TABLE salle (
     id INT AUTO_INCREMENT PRIMARY KEY,
