@@ -11,7 +11,7 @@ cursor = mydb.cursor()
 
 # Création de la table etage
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS etage (
+CREATE TABLE etage (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(255),
     numero INT,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS etage (
 
 # Création de la table salle
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS salle (
+CREATE TABLE salle (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(255),
     id_etage INT,
