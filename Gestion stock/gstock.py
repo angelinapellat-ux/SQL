@@ -18,3 +18,21 @@ class StoreDB:
         """)
         return self.cursor.fetchall()
 
+    def add_product(self, name, description, price, quantity, id_category):
+        self.cursor.execute("""
+            INSERT INTO product (name, description, price, quantity, id_category)
+            VALUES (%s, %s, %s, %s, %s)
+        """, (name, description, price, quantity, id_category))
+        self.db.commit()
+
+    def delete_product(self, product_id):
+        self.cursor.execute("DELETE FROM product WHERE id = %s", (product_id,))
+        self.db.commit()
+
+    def update_product(self, product_id, name, price, quantity):
+        self.cursor.execute("""
+            UPDATE product
+            SET name=%s, price=%s, quantity=%s
+            WHERE id=%s
+        """, (name, price, quantity, product_id))
+        self.db.commit()
