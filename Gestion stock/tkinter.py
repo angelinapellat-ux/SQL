@@ -41,3 +41,37 @@ def update_product():
         )
         refresh_table()
 
+root = tk.Tk()
+root.title("Gestion de Stock - Store")
+
+table = ttk.Treeview(root, columns=("ID", "Nom", "Prix", "Quantité", "Catégorie"), show="headings")
+for col in ("ID", "Nom", "Prix", "Quantité", "Catégorie"):
+    table.heading(col, text=col)
+table.pack()
+
+tk.Label(root, text="Nom").pack()
+entry_name = tk.Entry(root)
+entry_name.pack()
+
+tk.Label(root, text="Description").pack()
+entry_desc = tk.Entry(root)
+entry_desc.pack()
+
+tk.Label(root, text="Prix").pack()
+entry_price = tk.Entry(root)
+entry_price.pack()
+
+tk.Label(root, text="Quantité").pack()
+entry_qty = tk.Entry(root)
+entry_qty.pack()
+
+tk.Label(root, text="ID Catégorie").pack()
+entry_cat = tk.Entry(root)
+entry_cat.pack()
+
+tk.Button(root, text="Ajouter", command=add_product).pack()
+tk.Button(root, text="Modifier", command=update_product).pack()
+tk.Button(root, text="Supprimer", command=delete_product).pack()
+
+refresh_table()
+root.mainloop()
